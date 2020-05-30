@@ -86,3 +86,12 @@ gem 'ancestry'
 
 #font-awesome
 gem 'font-awesome-sass'
+
+#devise
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+
+#画像関係
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
