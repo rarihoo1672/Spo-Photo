@@ -73,3 +73,6 @@ gem 'haml-rails'
 
 #pry
 gem 'pry-rails'
+
+#jquery
+gem 'jquery-rails'
