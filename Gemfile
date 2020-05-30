@@ -86,3 +86,6 @@ gem 'ancestry'
 
 #font-awesome
 gem 'font-awesome-sass'
+
+#devise
+gem 'devise'
