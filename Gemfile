@@ -80,3 +80,6 @@ gem 'pry-rails'
 
 #jquery
 gem 'jquery-rails'
+
+# ancestry
+gem 'ancestry'
