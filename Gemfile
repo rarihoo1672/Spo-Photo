@@ -91,3 +91,6 @@ gem 'font-awesome-sass'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+
+#画像関係
+gem 'carrierwave', '~> 2.0'
