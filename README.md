@@ -1,5 +1,3 @@
-# README
-
 # DataBase Disign
 
 ## usersテーブル
