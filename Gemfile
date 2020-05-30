@@ -94,3 +94,4 @@ gem 'devise-i18n-views'
 
 #画像関係
 gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
