@@ -1,24 +1,55 @@
-# README
+# DataBase Disign
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|avatar|string||
+|introduction|text||
+|email|string|null: false, unique: true|
+|password|string|null: false|
 
-Things you may want to cover:
+### Association
+ - has_many :spots, dependent: :destroy
 
-* Ruby version
 
-* System dependencies
+## spotsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|thumbnail|string|null: false|
+|text|string||
+|user_id|references|foreign_key, null: false|
+|category_id|references|foreign_key, null: false|
 
-* Configuration
+### Association
+ - belongs_to :user
+ - belongs_to :category
+ - has_one :map
 
-* Database creation
 
-* Database initialization
+## mapsテーブル #google maps api
+|Column|Type|Options|
+|------|----|-------|
+|address|string|null: false|
+|latitude|float|null: false|
+|longitude|float|null: false|
+|spot_id|references|foreign_key: true, null: false|
 
-* How to run the test suite
+### Association
+ - belongs_to:spot
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string||
 
-* ...
+### Association
+ - has_many :spots
+ - has_ancestry
+
+
+
+
