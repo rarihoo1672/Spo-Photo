@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_05_30_104621) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "nickname", default: ""
+    t.string "nickname", limit: 12, null: false
     t.string "avatar"
     t.string "introduction", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
