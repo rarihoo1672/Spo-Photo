@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   mount_uploader :avatar, AvatarUploader
+
+  validates :nickname,  presence: true, uniqueness: true,
+                        length: {maximum: 12}
 end
