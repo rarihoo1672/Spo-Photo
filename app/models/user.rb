@@ -8,4 +8,6 @@ class User < ApplicationRecord
 
   validates :nickname,  presence: true, uniqueness: true,
                         length: {maximum: 12}
+
+  has_many :spots
 end
