@@ -1,0 +1,2 @@
+class Periphery < ApplicationRecord
+end
