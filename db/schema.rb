@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_183538) do
+ActiveRecord::Schema.define(version: 2020_06_05_130125) do
 
   create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 25, null: false
     t.string "main_visual", null: false
-    t.string "infomation"
+    t.string "information"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
