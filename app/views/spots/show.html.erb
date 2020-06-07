@@ -1,8 +1,3 @@
-
-
-
-
-
 <p id="notice"><%= notice %></p>
 
 <div>
@@ -45,11 +40,28 @@
   });
 </script>
 
-<%= form_with model: @comment, locals: true do |f| %>
+<%- @comments.each do |comment| %>
+  <p>
+    <strong>information:</strong>
+    <%= comment.content %>
+  </p>
+  <p>
+    <strong>information:</strong>
+    <%= comment.user.nickname %>
+  </p>
+
+  <p>
+    <strong>created:</strong>
+    <%= l comment.created_at %>
+  </p>
+<% end %>
+
+<%= form_with(model: [@spot, @comment], locals: true) do |f| %>
   <div class="field">
     <%= f.label :content %>
     <%= f.text_area :content, rows: 3, maxlength: 30, placeholder: "30文字以内" %>
   </div>
+  <%= f.submit %>
 <% end %>
 
 
