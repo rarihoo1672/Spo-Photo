@@ -1,9 +1,10 @@
 class SpotsController < ApplicationController
+  before_action :set_spot, only: [:show, :edit]
+
   def index
   end
 
   def show
-    @spot = Spot.find(params[:id])
     @user_nickname = @spot.user.nickname
   end
 
@@ -32,5 +33,9 @@ class SpotsController < ApplicationController
   private
   def spot_params
     params.require(:spot).permit(:name, :main_visual, :information, :address, :latitude, :longitude).merge(user_id: current_user.id)
+  end
+
+  def set_spot
+    @spot = Spot.find(params[:id])
   end
 end
