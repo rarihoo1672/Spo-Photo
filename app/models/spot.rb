@@ -1,6 +1,5 @@
 class Spot < ApplicationRecord
   belongs_to :user
-  has_many :peripheries
 
   validates :name, presence: true, length: {maximum: 25}
   
