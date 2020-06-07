@@ -10,6 +10,12 @@ class SpotsController < ApplicationController
   end
 
   def create
+    spot = Spot.new(spot_params)
+    if spot.save
+      redirect_to root_path, notice: "登録しました"
+    else
+      render :new
+    end
   end
 
   def edit
