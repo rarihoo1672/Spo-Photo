@@ -1,2 +1,18 @@
 <%= link_to "スポット登録", new_spot_path %>
 
+<div class="map-container">
+  <div id="map" class="map-canvas"></div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      handler.getMap().setCenter(new google.maps.LatLng(35.679899, 139.762507));
+      handler.getMap().setZoom(12);
+      handler.getMap().setOptions({ draggableCursor: "default" });
+      directionsDisplay.setMap(handler.getMap());
+    });
+</script>
