@@ -1,5 +1,5 @@
 class SpotsController < ApplicationController
-  before_action :set_spot, only: [:show, :edit, :update]
+  before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -34,6 +34,8 @@ class SpotsController < ApplicationController
   end
 
   def destroy
+    @spot.destroy
+    redirect_to root_path, notice: "削除しました"
   end
 
   private
