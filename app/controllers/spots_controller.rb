@@ -12,7 +12,7 @@ class SpotsController < ApplicationController
   def create
     spot = Spot.new(spot_params)
     if spot.save
-      redirect_to root_path, notice: "登録しました"
+      redirect_to spot_path(spot), notice: "登録しました"
     else
       render :new
     end
