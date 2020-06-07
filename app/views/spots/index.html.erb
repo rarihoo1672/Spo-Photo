@@ -1,0 +1,37 @@
+<%= link_to "スポット登録", new_spot_path %>
+
+<div class="map-container">
+  <div id="map" class="map-canvas"></div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script>
+
+<%- @spots.each do |spot| %>
+  <%= link_to spot_path(spot), data: {"turbolinks" => false} do %>
+    <div>
+      <%= image_tag spot.main_visual_url, size: "200x300" %>
+    </div>
+    <h2>
+      <strong>name:</strong>
+      <%= spot.name %>
+    </h2>
+
+    <p>
+      <strong>nickname:</strong>
+      <%= spot.user.nickname %>
+    </p>
+
+    <p>
+      <strong>created:</strong>
+      <%= l spot.created_at %>
+    </p>
+  <% end %>
+<% end %>
+
