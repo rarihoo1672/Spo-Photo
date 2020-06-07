@@ -16,11 +16,12 @@ class SpotsController < ApplicationController
       marker.lng spot.longitude
       marker.infowindow spot.name
     end
+    @comment = Comment.new
+    @comments = @spot.comments
   end
 
   def new
     @spot = Spot.new
-    @comment = Comment.new
   end
 
   def create
