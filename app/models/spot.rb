@@ -7,4 +7,7 @@ class Spot < ApplicationRecord
   has_many :peripheries
 
   mount_uploader :main_visual, MainVisualUploader
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
