@@ -12,6 +12,11 @@ class SpotsController < ApplicationController
 
   def show
     @user_nickname = @spot.user.nickname
+    @hash = Gmaps4rails.build_markers(@spot) do |spot, marker|
+      marker.lat spot.latitude
+      marker.lng spot.longitude
+      marker.infowindow spot.name
+    end
   end
 
   def new
