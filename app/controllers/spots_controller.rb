@@ -3,6 +3,8 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @spot = Spot.find(params[:id])
+    @user_nickname = @spot.user.nickname
   end
 
   def new
