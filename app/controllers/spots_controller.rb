@@ -20,6 +20,7 @@ class SpotsController < ApplicationController
 
   def new
     @spot = Spot.new
+    @comment = Comment.new
   end
 
   def create
