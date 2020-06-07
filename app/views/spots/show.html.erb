@@ -1,0 +1,71 @@
+<script type="text/javascript">
+  function initMap() {
+
+    var test ={lat: <%= @spot.latitude %>, lng: <%= @spot.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: test
+    });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @spot.address %>';
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+
+    var marker = new google.maps.Marker({
+        position:test,
+        map: map,
+        title: contentString
+    });
+
+    marker.addListener('click', function() {
+        infowindow.open(map, marker);
+    });
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=ENV[GOOGLE_MAPS_API_KEY]&callback=initMap">
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<div>
+  <%= image_tag @spot.main_visual_url, size: "200x300" %>
+</div>
+
+<h2>
+  <strong>name:</strong>
+  <%= @spot.name %>
+</h2>
+
+<p>
+  <strong>nickname:</strong>
+  <%= @user_nickname %>
+</p>
+
+<p>
+  <strong>created:</strong>
+  <%= l @spot.created_at %>
+</p>
+
+<p>
+  <strong>information:</strong>
+  <%= @spot.information %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @spot.address %>
+</p>
+
+
+<style type="text/css">
+  #map { height: 400px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+    width: 80%;}
+</style>
+<div id="map"></div>
