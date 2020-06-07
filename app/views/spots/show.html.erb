@@ -45,6 +45,13 @@
   });
 </script>
 
+<%= form_with model: @comment, locals: true do |f| %>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, rows: 3, maxlength: 30, placeholder: "30文字以内" %>
+  </div>
+<% end %>
+
 
 
 
