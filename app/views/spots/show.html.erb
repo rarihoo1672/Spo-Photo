@@ -40,21 +40,8 @@
   });
 </script>
 
-<%- @comments.each do |comment| %>
-  <p>
-    <strong>information:</strong>
-    <%= comment.content %>
-  </p>
-  <p>
-    <strong>information:</strong>
-    <%= comment.user.nickname %>
-  </p>
+<%= render partial: "comment", locals: {comments: @comments} %>
 
-  <p>
-    <strong>created:</strong>
-    <%= l comment.created_at %>
-  </p>
-<% end %>
 
 <%= form_with(model: [@spot, @comment], locals: true) do |f| %>
   <div class="field">
