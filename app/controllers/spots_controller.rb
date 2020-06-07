@@ -2,6 +2,12 @@ class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
   def index
+    @spots = Spot.all
+    @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
+      marker.lat spot.latitude
+      marker.lng spot.longitude
+      marker.infowindow render_to_string( partial: "spots/infowindow",locals: {spot:spot} )
+    end
   end
 
   def show
