@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
   end
 
+  root to: "spots#index"
   resources :users, only: [:show, :edit, :update]
   resources :spots
 end
