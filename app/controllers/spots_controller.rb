@@ -6,6 +6,7 @@ class SpotsController < ApplicationController
   end
 
   def new
+    @spot = Spot.new
   end
 
   def create
