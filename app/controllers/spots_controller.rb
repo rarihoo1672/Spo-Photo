@@ -1,5 +1,5 @@
 class SpotsController < ApplicationController
-  before_action :set_spot, only: [:show, :edit]
+  before_action :set_spot, only: [:show, :edit, :update]
 
   def index
   end
@@ -22,9 +22,15 @@ class SpotsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
+    if @spot.update(spot_params)
+      redirect_to spot_path(@spot), notice: "登録しました"
+    else
+      render :edit
+    end
   end
 
   def destroy
