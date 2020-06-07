@@ -95,3 +95,4 @@ gem 'mini_magick'
 
 #マップ関連
 gem 'geocoder'
+gem 'gmaps4rails'
