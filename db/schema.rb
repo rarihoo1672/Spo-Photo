@@ -10,24 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_205050) do
+ActiveRecord::Schema.define(version: 2020_06_07_214950) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "cotent", limit: 30, null: false
+    t.string "content", limit: 30, null: false
     t.bigint "user_id"
     t.bigint "spot_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["spot_id"], name: "index_comments_on_spot_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "peripheries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "sub_visual"
-    t.bigint "spot_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["spot_id"], name: "index_peripheries_on_spot_id"
   end
 
   create_table "spots", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,6 +52,5 @@ ActiveRecord::Schema.define(version: 2020_06_07_205050) do
 
   add_foreign_key "comments", "spots"
   add_foreign_key "comments", "users"
-  add_foreign_key "peripheries", "spots"
   add_foreign_key "spots", "users"
 end
