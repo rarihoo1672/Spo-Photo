@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   root to: "spots#index"
   resources :users, only: [:show, :edit, :update]
   resources :spots do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
 end
