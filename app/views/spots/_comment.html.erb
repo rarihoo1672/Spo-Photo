@@ -1,0 +1,17 @@
+<%- comments.each do |comment| %>
+  <p>
+    <strong>information:</strong>
+    <%= comment.content %>
+  </p>
+  <p>
+    <strong>information:</strong>
+    <%= comment.user.nickname %>
+  </p>
+
+  <p>
+    <strong>created:</strong>
+    <%= l comment.created_at %>
+  </p>
+
+  <%= link_to "削除する", spot_comment_path(comment.spot_id, comment.id), method: :delete %>
+<% end %>

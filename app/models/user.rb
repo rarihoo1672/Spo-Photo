@@ -10,4 +10,5 @@ class User < ApplicationRecord
                         length: {maximum: 12}
 
   has_many :spots
+  has_many :comments, dependent: :destroy
 end

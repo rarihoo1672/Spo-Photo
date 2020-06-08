@@ -1,8 +1,3 @@
-
-
-
-
-
 <p id="notice"><%= notice %></p>
 
 <div>
@@ -36,7 +31,7 @@
 
 <div id="map-show" style="width: 800px; height: 400px;"></div>
 
-<script>
+<script type="text/javascript">
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {}, internal: {id: 'map-show'}}, function(){
     markers = handler.addMarkers(<%= raw @hash.to_json %>);
@@ -45,10 +40,19 @@
   });
 </script>
 
+<%= render partial: "comment", locals: {comments: @comments} %>
+
+<%= form_with(model: [@spot, @comment], remote: true) do |f| %>
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, rows: 3, maxlength: 30, placeholder: "30文字以内" %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
 
 
 
 <%= link_to "編集する", edit_spot_path(@spot) %>
 <%= link_to "削除する", spot_path(@spot), method: :delete %>
-
 <%= link_to "トップページへ", root_path, data: {"turbolinks" => false} %>
