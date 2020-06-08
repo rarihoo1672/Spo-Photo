@@ -10,6 +10,10 @@ class User < ApplicationRecord
                         length: {maximum: 12}
 
   has_many :spots
-  has_many :likes
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_spotss, through: :likes, source: :spot
+  def already_liked?(spot)
+    self.likes.exists?(spot_id: spot.id)
+  end
 end
