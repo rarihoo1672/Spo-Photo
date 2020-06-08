@@ -18,6 +18,7 @@ class SpotsController < ApplicationController
     end
     @comment = Comment.new
     @comments = @spot.comments
+    @like = Like.new
   end
 
   def new
