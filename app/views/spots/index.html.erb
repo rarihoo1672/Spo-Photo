@@ -35,7 +35,7 @@
       <%= l spot.created_at %>
     </p>
   <% end %>
-  <% if user_signed_in? %>
+  <% if user_signed_in? && current_user.id != spot.user.id %>
     <%= render partial: "like-form",locals: { spot: spot } %>
   <% end %>
 <% end %>
