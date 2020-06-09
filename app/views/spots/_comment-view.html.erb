@@ -9,11 +9,8 @@
   </p>
 
   <div>
-    <% if comment.user.avatar? %>
-      <%= image_tag comment.user.avatar.to_s, size: "40x40" %>
-    <% else %>
-        <%= image_tag asset_path("non-avatar.png"), id: :image_prev, size: "20x30" %>
-    <% end %>
+    <%= render partial: "avatar-view", locals: {user: comment.user} %>
+  </div>
 
   <p>
     <strong>コメントした時間:</strong>
