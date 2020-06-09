@@ -16,8 +16,8 @@
     <% end %>
 
   <p>
-    <strong>created:</strong>
-    <%= l comment.created_at %>
+    <strong>コメントした時間:</strong>
+    <%= time_ago_in_words(comment.created_at) %>
   </p>
 
   <%= link_to "削除する", spot_comment_path(comment.spot_id, comment.id), method: :delete %>
