@@ -20,14 +20,16 @@
     <div class="field">
       <p>
         現在の画像
-        <%= image_tag @spot.main_visual.url, size: "200x300" %>
+        <%= image_tag @spot.main_visual.url, id: "image_prev", size: "200x300" %>
       </p>
     </div>
+  <% else %>
+    <%= image_tag asset_path("dummy-white.png"),  id: "image_prev", size: "200x300" %>
   <% end %>
 
   <div class="field">
     <%= f.label :main_visual %>
-    <%= f.file_field :main_visual %>
+    <%= f.file_field :main_visual, id: "image_input" %>
   </div>
 
   <div class="field">
