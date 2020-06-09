@@ -13,6 +13,14 @@
   <strong>nickname:</strong>
   <%= @spot.user.nickname %>
 </p>
+<div>
+  <strong>いいね数:</strong>
+    <%= @spot.liked_users.count %>
+<div>
+
+<% if user_signed_in? && current_user.id != @spot.user.id  %>
+  <%= render partial: "like-form",locals: { spot: @spot } %>
+<% end %>
 
 <p>
   <strong>created:</strong>
@@ -31,16 +39,9 @@
 
 <div id="map-show" style="width: 800px; height: 400px;"></div>
 
-<script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map-show'}}, function(){
-    markers = handler.addMarkers(<%= raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
-</script>
+<%= render partial: "map-view", locals: {hash: @hash.to_json} %>
 
-<%= render partial: "comment", locals: {comments: @comments} %>
+<%= render partial: "comment-view", locals: {comments: @spot.comments} %>
 
 <%= form_with(model: [@spot, @comment], remote: true) do |f| %>
   <div class="field">

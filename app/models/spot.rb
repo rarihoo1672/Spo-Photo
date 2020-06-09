@@ -9,4 +9,8 @@ class Spot < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  belongs_to :user
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 end

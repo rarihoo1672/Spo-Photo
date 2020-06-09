@@ -1,7 +1,12 @@
+<% if @user.avatar? %>
+  <%= image_tag @user.avatar.url, id: :image_prev, size: "200x300" %>
+<% else %>
+  <%= image_tag asset_path("non-avatar.png"), id: :image_prev, size: "200x300" %>
+<% end %>
 
 <%= form_with model: @user do |f| %>
   <%= f.label :avatar %>
-  <%= f.file_field :avatar %>
+  <%= f.file_field :avatar, id: "image_input" %>
 
   <%= f.label :nickname %>
   <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>

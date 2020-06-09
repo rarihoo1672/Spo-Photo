@@ -8,6 +8,7 @@ class SpotsController < ApplicationController
       marker.lng spot.longitude
       marker.infowindow render_to_string( partial: "spots/infowindow",locals: {spot:spot} )
     end
+    @like = Like.new
   end
 
   def show
@@ -17,7 +18,7 @@ class SpotsController < ApplicationController
       marker.infowindow spot.name
     end
     @comment = Comment.new
-    @comments = @spot.comments
+    @like = Like.new
   end
 
   def new
