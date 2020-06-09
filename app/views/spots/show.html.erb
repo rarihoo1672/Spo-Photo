@@ -10,6 +10,11 @@
 </h2>
 
 <p>
+  <strong>avatar:</strong>
+  <%= render partial: "avatar-view", locals: {user: @spot.user} %>
+</p>
+
+<p>
   <strong>nickname:</strong>
   <%= @spot.user.nickname %>
 </p>
