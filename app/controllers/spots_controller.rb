@@ -28,19 +28,20 @@ class SpotsController < ApplicationController
   def create
     spot = Spot.new(spot_params)
     if spot.save
-      redirect_to spot_path(spot), notice: "登録しました"
+      redirect_to spot_path(spot)
+      flash[:notice] = "スポットを登録しました"
     else
       render :new
     end
   end
 
   def edit
-
   end
 
   def update
     if @spot.update(spot_params)
-      redirect_to spot_path(@spot), notice: "登録しました"
+      redirect_to spot_path(@spot)
+      flash[:notice] = "スポットを編集しました"
     else
       render :edit
     end
@@ -48,7 +49,8 @@ class SpotsController < ApplicationController
 
   def destroy
     @spot.destroy
-    redirect_to root_path, notice: "削除しました"
+    redirect_to root_path
+    flash[:notice] = "スポットを削除しました"
   end
 
   private

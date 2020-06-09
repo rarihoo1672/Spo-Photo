@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment = spot.comments.build(comment_params)
     if @comment.save
       redirect_to spot_path(spot)
+      flash[:notice] = "コメントをしました"
     else
       render :new
     end
@@ -13,6 +14,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     comment.destroy
     redirect_to spot_path(comment.spot_id)
+    flash[:notice] = "コメントを削除しました"
   end
   
   private
