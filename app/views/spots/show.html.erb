@@ -13,7 +13,6 @@
   <strong>nickname:</strong>
   <%= @spot.user.nickname %>
 </p>
-
 <div>
   <strong>いいね数:</strong>
     <%= @spot.liked_users.count %>
@@ -42,7 +41,7 @@
 
 <%= render partial: "map-view", locals: {hash: @hash.to_json} %>
 
-<%= render partial: "comment-view", locals: {comments: @comments} %>
+<%= render partial: "comment-view", locals: {comments: @spot.comments} %>
 
 <%= form_with(model: [@spot, @comment], remote: true) do |f| %>
   <div class="field">
