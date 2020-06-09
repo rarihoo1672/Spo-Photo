@@ -15,6 +15,15 @@
     <%= f.label :name %>
     <%= f.text_field :name, maxlength: 25, placeholder: "25文字以内" %>
   </div>
+  
+  <% if @spot.main_visual? %>
+    <div class="field">
+      <p>
+        現在の画像
+        <%= image_tag @spot.main_visual.url, size: "200x300" %>
+      </p>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :main_visual %>
