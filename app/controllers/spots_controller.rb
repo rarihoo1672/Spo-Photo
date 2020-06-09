@@ -3,22 +3,22 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all.includes(:user)
+    @like = Like.new
     @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
       marker.infowindow render_to_string( partial: "spots/infowindow",locals: {spot:spot} )
     end
-    @like = Like.new
   end
 
   def show
+    @comment = Comment.new
+    @like = Like.new
     @hash = Gmaps4rails.build_markers(@spot) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
       marker.infowindow spot.name
     end
-    @comment = Comment.new
-    @like = Like.new
   end
 
   def new
