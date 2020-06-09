@@ -7,6 +7,11 @@
 
 <%= @user.nickname %>
 <%= @user.introduction %>
-<%= image_tag @user.avatar.to_s, size: "200x300" %>
+<% if @user.avatar? %>
+  <%= image_tag @user.avatar.to_s, size: "200x300" %>
+<% else %>
+  <i class="far fa-user-circle fa-3x"></i>
+<% end %>
+
 
 <%= link_to "プロフィールの編集画面へ", edit_user_path(@user) %>
