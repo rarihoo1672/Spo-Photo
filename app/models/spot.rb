@@ -4,7 +4,7 @@ class Spot < ApplicationRecord
 
   validates :name, presence: true, length: {maximum: 25}
   
-  validates :main_visual, presence: true
+  validates :main_visual, presence: true, length: {minimum: 1}
   mount_uploader :main_visual, MainVisualUploader
 
   geocoded_by :address
