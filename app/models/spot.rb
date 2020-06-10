@@ -5,9 +5,9 @@ class Spot < ApplicationRecord
   has_many         :liked_users,  through: :likes, source: :user
 
   validates        :name,         presence: true, length: {maximum: 25}
-  validates        :informaion,   length: { maximum: 1000 }
+  validates        :information,  length: { maximum: 1000 }
   validates        :address,      presence: true
-  validates        :main_visual,  presence: true, length: {minimum: 1}
+  validates        :main_visual,  presence: true
   mount_uploader   :main_visual,  MainVisualUploader
 
   geocoded_by      :address
