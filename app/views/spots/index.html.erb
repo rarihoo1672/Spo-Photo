@@ -2,9 +2,7 @@
   <%= link_to "スポット登録", new_spot_path %>
 <% end %>
 
-<div class="map-container">
-  <div id="map-show" class="map-canvas"></div>
-</div>
+
 
 
 <%= render partial: "map-view", locals: {hash: @hash.to_json} %>

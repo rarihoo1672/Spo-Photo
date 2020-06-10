@@ -40,8 +40,6 @@
   <%= @spot.address %>
 </p>
 
-<div id="map-show" style="width: 800px; height: 400px;"></div>
-
 <%= render partial: "map-view", locals: {hash: @hash.to_json} %>
 
 <%= render partial: "comment-view", locals: {comments: @spot.comments} %>
