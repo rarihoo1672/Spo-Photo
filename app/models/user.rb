@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   validates       :nickname,     presence: true,  uniqueness: true, 
                   length: { minimum: 1, maximum: 12 }
-  validates       :introduction, length: { muximum: 1000 }
-  
+  validates       :introduction, length: { maximum: 1000 }
+
   mount_uploader  :avatar, AvatarUploader
 
   def already_liked?(spot)
