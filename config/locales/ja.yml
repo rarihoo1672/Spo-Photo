@@ -7,6 +7,17 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      comment: "コメント"
+      like: "いいね"
+      spot: "スポット"
+    attributes:
+      comment:
+        content: "コメント"
+      spot:
+        name: "スポット名"
+        information: "説明"
+        address: "住所"
   date:
     abbr_day_names:
     - 日
