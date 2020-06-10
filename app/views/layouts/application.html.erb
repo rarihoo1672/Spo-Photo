@@ -22,7 +22,7 @@
       <%= flash[:alert] %>
     </p>
     <div>
-      <%= link_to "ホームへ", root_path %>
+      <%= link_to "ホームへ", root_path, data: {"turbolinks" => false} %>
     <% if user_signed_in? %>
       <div>
         <%= link_to "スポット登録", new_spot_path %>
