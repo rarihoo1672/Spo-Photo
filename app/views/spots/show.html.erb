@@ -22,7 +22,7 @@
 <div>
 
 <% if user_signed_in? && current_user.id != @spot.user.id  %>
-  <%= render partial: "like-form",locals: { spot: @spot } %>
+  <%= render partial: "like-form", locals: { spot: @spot } %>
 <% end %>
 
 <p>
@@ -54,7 +54,7 @@
 
 
 
-
-<%= link_to "編集する", edit_spot_path(@spot) %>
-<%= link_to "削除する", spot_path(@spot), method: :delete %>
-<%= link_to "トップページへ", root_path, data: {"turbolinks" => false} %>
+<% if @spot.user.id == current_user.id %>
+  <%= link_to "編集する", edit_spot_path(@spot) %>
+  <%= link_to "削除する", spot_path(@spot), method: :delete %>
+<% end %>
