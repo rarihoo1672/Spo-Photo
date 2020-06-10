@@ -1,13 +1,35 @@
-<h1>
-  Users#show
-</h1>
-<p>
-  Find me in app/views/users/show.html.haml
-</p>
+<%= link_to "プロフィールの編集画面へ", edit_user_path(@user) %>
+
+<%= render partial: "spots/avatar-view", locals: {user: @user} %>
 
 <%= @user.nickname %>
 <%= @user.introduction %>
-<%= render partial: "spots/avatar-view", locals: {user: @user} %>
+
+<% if @user_likes.present? %>
+  <p>いいねした一覧</p>
+  <% @user_likes.each do |like| %>
+    <%= link_to spot_path(like) do%>
+      <div>
+        <div>
+          <%= image_tag like.main_visual.url, size: "500x300"%>
+        </div>
+
+        <p>
+          <strong>スポット名</strong>
+          <%= like.name %>
+        </p>
+
+        <p>
+          <strong>住所</strong>
+          <%= like.address %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>
+    いいねをしたスポットはありません
+  </p>
+<% end %>
 
 
-<%= link_to "プロフィールの編集画面へ", edit_user_path(@user) %>

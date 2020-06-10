@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many        :spots
   has_many        :comments,     dependent: :destroy
   has_many        :likes,        dependent: :destroy
-  has_many        :liked_spotss, through: :likes, source: :spot
+  has_many        :liked_spots, through: :likes, source: :spot
 
   validates       :nickname,     presence: true,  uniqueness: true, 
                   length: { minimum: 1, maximum: 12 }

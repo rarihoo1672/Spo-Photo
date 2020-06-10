@@ -1,7 +1,7 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
   before_action :set_like, only: [:index, :show]
-
+  before_action :likes_ranking, only: [:index]
   def index
     @spots = Spot.all.includes(:user)
     @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
@@ -63,5 +63,11 @@ class SpotsController < ApplicationController
 
   def set_like
     @like = Like.new
+  end
+
+  def likes_ranking
+    spot_like_count = Spot.joins(:likes).group(:spot_id).limit(5).count
+    spot_liked_ids = Hash[spot_like_count.sort_by{ |_, v| -v }].keys
+    @spot_ranking = Spot.where(id: spot_liked_ids)
   end
 end
