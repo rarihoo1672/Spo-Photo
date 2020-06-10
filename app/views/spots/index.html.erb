@@ -1,5 +1,14 @@
 <%= render partial: "map-view", locals: {hash: @hash.to_json} %>
 
+<% @spot_ranking.each do |ranking| %>
+<h2>ランキング</h2>
+  <%= link_to spot_path(ranking.id) do %>
+    <%= image_tag ranking.main_visual.url, size: "20x30" %>
+    <%= ranking.name %>
+  <% end %>
+<% end %>
+
+<p>aaa</p>
 <%- @spots.each do |spot| %>
   <%= link_to spot_path(spot), data: {"turbolinks" => false} do %>
     <div>
