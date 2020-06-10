@@ -1,8 +1,9 @@
 <%= render partial: "map-view", locals: {hash: @hash.to_json} %>
 
-<% @spot_ranking.each do |ranking| %>
+<% @spot_ranking.each.with_index(1) do |ranking, i| %>
 <h2>ランキング</h2>
   <%= link_to spot_path(ranking.id) do %>
+    <p>第<%= i %>位</p>
     <%= image_tag ranking.main_visual.url, size: "20x30" %>
     <%= ranking.name %>
   <% end %>
