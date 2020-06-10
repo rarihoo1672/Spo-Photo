@@ -5,7 +5,7 @@ ja:
         current_password: "現在のパスワード"
         nickname: "ニックネーム"
         avatar: "アバター"
-        introduction: "イントロダクション"
+        introduction: "プロフィール"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
