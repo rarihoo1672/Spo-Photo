@@ -21,6 +21,13 @@
     <p class="alert">
       <%= flash[:alert] %>
     </p>
+
+    <div>
+      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログアウト", new_user_registration_path %>
+      <%= link_to "新規登録", destroy_user_registration_path, method: delete %>
+      
     <%= yield %>
   </body>
 </html>
