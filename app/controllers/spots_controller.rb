@@ -1,19 +1,18 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
+  before_action :set_like, only: [:index, :show]
 
   def index
     @spots = Spot.all.includes(:user)
-    @like = Like.new
     @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
-      marker.infowindow render_to_string( partial: "spots/infowindow",locals: {spot:spot} )
+      marker.infowindow render_to_string( partial: "spots/infowindow",locals: {spot: spot} )
     end
   end
 
   def show
     @comment = Comment.new
-    @like = Like.new
     @hash = Gmaps4rails.build_markers(@spot) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
@@ -60,5 +59,9 @@ class SpotsController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:id])
+  end
+
+  def set_like
+    @like = Like.new
   end
 end
