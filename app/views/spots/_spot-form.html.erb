@@ -1,16 +1,6 @@
 <%= form_with model: spot, local: true do |f|%>
-  <% if spot.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(spot.errors.count, "error") %> prohibited this map from being saved:</h2>
 
-      <ul>
-      <% spot.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render partial: "layouts/errors-messages", locals: { model: @spot} %>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name, maxlength: 25, placeholder: "25文字以内" %>
@@ -20,14 +10,16 @@
     <div class="field">
       <p>
         現在の画像
-        <%= image_tag @spot.main_visual.url, size: "200x300" %>
+        <%= image_tag @spot.main_visual.url, id: "image_prev", size: "200x300" %>
       </p>
     </div>
+  <% else %>
+    <%= image_tag asset_path("dummy-white.png"),  id: "image_prev", size: "200x300" %>
   <% end %>
 
   <div class="field">
     <%= f.label :main_visual %>
-    <%= f.file_field :main_visual %>
+    <%= f.file_field :main_visual, id: "image_input" %>
   </div>
 
   <div class="field">

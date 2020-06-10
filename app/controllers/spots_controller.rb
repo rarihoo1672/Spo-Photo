@@ -1,24 +1,23 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
+  before_action :set_like, only: [:index, :show]
 
   def index
     @spots = Spot.all.includes(:user)
     @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
-      marker.infowindow render_to_string( partial: "spots/infowindow",locals: {spot:spot} )
+      marker.infowindow render_to_string( partial: "spots/infowindow",locals: {spot: spot} )
     end
-    @like = Like.new
   end
 
   def show
+    @comment = Comment.new
     @hash = Gmaps4rails.build_markers(@spot) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude
       marker.infowindow spot.name
     end
-    @comment = Comment.new
-    @like = Like.new
   end
 
   def new
@@ -26,21 +25,22 @@ class SpotsController < ApplicationController
   end
 
   def create
-    spot = Spot.new(spot_params)
-    if spot.save
-      redirect_to spot_path(spot), notice: "登録しました"
+    @spot = Spot.new(spot_params)
+    if @spot.save
+      redirect_to spot_path(@spot)
+      flash[:notice] = "スポットを登録しました"
     else
       render :new
     end
   end
 
   def edit
-
   end
 
   def update
     if @spot.update(spot_params)
-      redirect_to spot_path(@spot), notice: "登録しました"
+      redirect_to spot_path(@spot)
+      flash[:notice] = "スポットを編集しました"
     else
       render :edit
     end
@@ -48,7 +48,8 @@ class SpotsController < ApplicationController
 
   def destroy
     @spot.destroy
-    redirect_to root_path, notice: "削除しました"
+    redirect_to root_path
+    flash[:notice] = "スポットを削除しました"
   end
 
   private
@@ -58,5 +59,9 @@ class SpotsController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:id])
+  end
+
+  def set_like
+    @like = Like.new
   end
 end

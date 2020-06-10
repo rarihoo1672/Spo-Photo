@@ -7,11 +7,7 @@
 
 <%= @user.nickname %>
 <%= @user.introduction %>
-<% if @user.avatar? %>
-  <%= image_tag @user.avatar.to_s, size: "200x300" %>
-<% else %>
-    <%= image_tag asset_path("non-avatar.png"), id: :image_prev, size: "200x300" %>
-<% end %>
+<%= render partial: "spots/avatar-view", locals: {user: @user} %>
 
 
 <%= link_to "プロフィールの編集画面へ", edit_user_path(@user) %>

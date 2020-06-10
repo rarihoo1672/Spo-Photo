@@ -16,11 +16,26 @@
 
   <body>
     <p class="notice">
-      <%= notice %>
+      <%= flash[:notice] %>
     </p>
     <p class="alert">
-      <%= alert %>
+      <%= flash[:alert] %>
     </p>
+    <div>
+      <%= link_to "ホームへ", root_path, data: {"turbolinks" => false} %>
+    <% if user_signed_in? %>
+      <div>
+        <%= link_to "スポット登録", new_spot_path %>
+        <%= link_to "マイページ", user_path(current_user) %>
+        <%= link_to "登録情報編集", edit_user_registration_path %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
