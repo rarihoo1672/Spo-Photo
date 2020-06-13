@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many        :liked_spots, through: :likes, source: :spot
 
   validates       :nickname,     presence: true,  uniqueness: true, length: { minimum: 1, maximum: 12 }
-  validates       :introduction, length: { maximum: 500 }
+  validates       :introduction, length: { maximum: 300 }
 
   mount_uploader  :avatar, AvatarUploader
 
