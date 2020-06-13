@@ -1,0 +1,7 @@
+<ul class="alert-lists">
+  <% flash.each do |message_type, message| %>
+    <li class="alert-lists__list alert-<%= message_type %>">
+      <p class="alert-lists__list__message"><%= message %><p>
+    </li>
+  <% end %>
+</ul>

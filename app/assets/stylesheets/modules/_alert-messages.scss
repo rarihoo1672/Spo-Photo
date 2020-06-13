@@ -1,0 +1,13 @@
+.alert-lists {
+  background-color: #ffdbc9;
+  border: double 1px #ff9872;
+  box-shadow :0px 0px 5px silver;
+  padding: 1% 5%;
+  height: auto;
+  &__list {
+    margin-bottom: 4px;
+    &__message {
+      font-size: 1.2rem;
+    }
+  }
+}
