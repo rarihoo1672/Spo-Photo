@@ -23,7 +23,9 @@
 
         <div class="acount-field">
           <%= f.label :introduction, class: "acount-field__label" %>
-          <%= f.text_area :introduction, class: "acount-field__form", autofocus: true, rows: 8,  placeholder: "500文字以内です", maxlength: 500 %>
+          <%= f.text_area :introduction, class: "acount-field__form", id:  "js-counter", autofocus: true, rows: 10,  placeholder: "500文字以内です", maxlength: 300 %>
+          
+          <p id="show-count">文字</p>
         </div>
 
         <div class="acount-actions">
