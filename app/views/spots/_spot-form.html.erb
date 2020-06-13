@@ -5,7 +5,6 @@
     <div class="image-form">
       <% if @spot.main_visual? %>
         <%= image_tag @spot.main_visual.url, id: "image_prev", size: "600x400" %>
-        </div>
       <% else %>
         <%= image_tag asset_path("dummy-white.png"),  id: "image_prev", size: "600x400" %>
       <% end %>
