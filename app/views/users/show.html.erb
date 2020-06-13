@@ -35,7 +35,7 @@
         <% @user.spots.each_with_index do |spot, i | %>
           <%= link_to spot_path(spot) do%>
             <div class="my-spot">
-              <p class="myspot__count"><%= i + 1 %></p>
+              <p class="my-spot__count"><%= i + 1 %></p>
               <div class="my-spot__image">
                 <%= image_tag spot.main_visual.url, size: "400x300"%>
               </div>
@@ -73,33 +73,35 @@
 
 
 
+    <div class="my-spots like-spots">
+      <h2 class="my-spots__label like-spots__label">いいねしたスポット一覧</h2>
+      <% if @user_likes.present? %>
+        <% @user_likes.each_with_index do |like, i| %>
+          <%= link_to spot_path(like) do%>
+            <div class="my-spot like__spot">
+              <p class="myspot__count like__spot__count"><%= i + 1 %></p>
+              <div class="my-spot__image like-spot__image">
+                <%= image_tag like.main_visual.url, size: "400x300"%>
+              </div>
 
-    <% if @user_likes.present? %>
-      <p>いいねしたスポット一覧</p>
-      <% @user_likes.each do |like| %>
-        <%= link_to spot_path(like) do%>
-          <div>
-            <div>
-              <%= image_tag like.main_visual.url, size: "500x300"%>
+              <p class="my-spot__name like-spot__name">
+                <strong>スポット名：</strong>
+                <%= like.name %>
+              </p>
+
+              <p class="my-spot__address like-spot__address">
+                <strong>住所</strong>
+                <%= like.address %>
+              </p>
             </div>
-
-            <p>
-              <strong>スポット名</strong>
-              <%= like.name %>
-            </p>
-
-            <p>
-              <strong>住所</strong>
-              <%= like.address %>
-            </p>
-          </div>
+          <% end %>
         <% end %>
+      <% else %>
+        <p class="my-spots__none">
+          いいねをしたスポットはありません
+        </p>
       <% end %>
-    <% else %>
-      <p>
-        いいねをしたスポットはありません
-      </p>
-    <% end %>
+    </div>
   </div>
 </div>
 
