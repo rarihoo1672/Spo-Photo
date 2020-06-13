@@ -1,0 +1,35 @@
+.profile-box {
+  .avatar-show {
+    width: 30%;
+    margin: 0 auto;
+    #image_prev {
+      border-radius: 50%;
+    }
+  }
+
+  .nickname-field {
+    margin: 20px 0 60px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .introduction-field {
+    padding: 0 20px;
+    &__label {
+      margin: 0 0 10px 5px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &__text {
+      font-size: 20px;
+      letter-spacing: 3px;
+      word-break: break-all;
+      line-height: 3rem;
+    }
+  }
+}
+
+.my-spot-container {
+  margin-top: 50px;
+  display: flex;
+}
