@@ -1,12 +1,62 @@
 <%= link_to "プロフィールの編集画面へ", edit_user_path(@user) %>
 
-<%= render partial: "spots/avatar-view", locals: {user: @user} %>
 
-<%= @user.nickname %>
-<%= @user.introduction %>
+<div class="acount-container">
+  <div class="acount-container__box">
+    <h2 class="acount-container__box__text">プロフィール</h2>
+
+    <div class="profile-box">
+      <div class="avatar-show">
+        <%= render partial: "spots/avatar-view", locals: {user: @user} %>
+      </div>
+
+      <p class="nickname-field">
+        <%= @user.nickname %>
+      </p>
+
+
+
+      <div class="profile-field introduction-field">
+        <p class="introduction-field__label">
+          プロフィール
+        </p>
+        <p class="introduction-field__text">
+          <%= @user.introduction %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <% if @user_likes.present? %>
-  <p>いいねした一覧</p>
+  <p>投稿したスポット一覧</p>
+  <% @user_likes.each do |like| %>
+    <%= link_to spot_path(like) do%>
+      <div>
+        <div>
+          <%= image_tag like.main_visual.url, size: "500x300"%>
+        </div>
+
+        <p>
+          <strong>スポット名</strong>
+          <%= like.name %>
+        </p>
+
+        <p>
+          <strong>住所</strong>
+          <%= like.address %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>
+    投稿したスポットはありません
+  </p>
+<% end %>
+<% if @user_likes.present? %>
+  <p>いいねしたスポット一覧</p>
   <% @user_likes.each do |like| %>
     <%= link_to spot_path(like) do%>
       <div>
