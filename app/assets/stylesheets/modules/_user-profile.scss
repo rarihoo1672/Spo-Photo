@@ -1,0 +1,17 @@
+.avatar-edit {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  #image_prev {
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 50%;
+  }
+  &__label {
+    font-size: 25px;
+  }
+  &__input {
+    margin-bottom: 60px;
+  }
+}
