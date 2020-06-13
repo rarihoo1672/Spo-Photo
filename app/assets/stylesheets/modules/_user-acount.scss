@@ -1,6 +1,6 @@
 .acount-container {
   padding: 5% 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: rgba(245,245,245,1);
   &__box {
@@ -22,7 +22,6 @@
       .acount-field {
         font-size: 20px;
         margin-bottom: 30px;
-        height: 60px;
         &--bottom {
 
           margin-bottom: 60px;

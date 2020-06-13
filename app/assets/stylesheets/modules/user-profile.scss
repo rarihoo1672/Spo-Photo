@@ -1,0 +1,67 @@
+.profile-box {
+  .avatar-show {
+    width: 30%;
+    margin: 0 auto;
+    #image_prev {
+      border-radius: 50%;
+    }
+  }
+
+  .nickname-field {
+    margin: 20px 0 60px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .introduction-field {
+    padding: 0 20px;
+    &__label {
+      margin: 0 0 10px 5px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &__text {
+      font-size: 20px;
+      letter-spacing: 3px;
+      word-break: break-all;
+      line-height: 3rem;
+    }
+  }
+}
+
+.my-spot-container {
+  text-align: center;
+  margin-top: 50px;
+  display: flex;
+
+  .my-spots {
+
+    width: 50%;
+    &__label {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 15%;
+    }
+    &__none {
+      font-size: 20px;
+      align-items: center;
+    }
+    .my-spot {
+      &__image {
+        margin-bottom: 20px;
+      }
+      &__name {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      &__address {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  
+}
