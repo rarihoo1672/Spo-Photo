@@ -37,16 +37,16 @@
           <%= l @spot.created_at %>
         </p>
       </div>
-
-      <div class="spot-user">
-        <div class="spot-user__avatar">
-          <%= render partial: "avatar-view", locals: {user: @spot.user} %>
-        </div>
-        <h2 class="spot-user__name"> 
-          投稿者:
-          <%= @spot.user.nickname %>
-        </h2>
-      </div>
+      
+      <%= link_to user_path(@spot.user), class: "spot-user" do %>
+          <div class="spot-user__avatar">
+            <%= render partial: "avatar-view", locals: {user: @spot.user} %>
+          </div>
+          <h2 class="spot-user__name"> 
+            投稿者:
+            <%= @spot.user.nickname %>
+          </h2>
+      <% end %>
     </div>
 
 
