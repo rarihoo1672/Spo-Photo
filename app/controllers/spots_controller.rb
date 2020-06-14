@@ -3,7 +3,7 @@ class SpotsController < ApplicationController
   before_action :set_like, only: [:index, :show]
   before_action :likes_ranking, only: [:index]
   def index
-    @spots = Spot.all.includes(:user)
+    @spots = Spot.page(params[:page]).per(10).includes(:user)
     @hash = Gmaps4rails.build_markers(@spots) do |spot, marker|
       marker.lat spot.latitude
       marker.lng spot.longitude

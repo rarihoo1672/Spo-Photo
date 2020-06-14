@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
   
   def show
-    @user_likes = @user.liked_spots
+    @user_likes = @user.liked_spots.page(params[:page]).per(7)
   end
 
   def edit

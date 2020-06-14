@@ -101,3 +101,6 @@ gem 'mini_magick'
 #マップ関連
 gem 'geocoder'
 gem 'gmaps4rails'
+
+#ページネーション
+gem 'kaminari', '~> 0.17.0'

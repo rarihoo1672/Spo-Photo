@@ -6,7 +6,6 @@
       border-radius: 50%;
     }
   }
-
   .nickname-field {
     margin: 20px 0 60px;
     text-align: center;
@@ -28,14 +27,24 @@
     }
   }
 }
-
+.user-edit-btn {
+  width: 30%;
+  margin: 30px auto;
+  &__link {
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 10px 20px;
+    background-color: rgba(216, 191, 216, 1);
+    text-decoration: none;
+  }
+}
 .my-spot-container {
   text-align: center;
-  margin-top: 50px;
+  margin: 50px 0;
   display: flex;
 
   .my-spots {
-
     width: 50%;
     &__label {
       font-size: 40px;

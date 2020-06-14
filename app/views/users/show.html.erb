@@ -1,7 +1,4 @@
-<%= link_to "プロフィールの編集画面へ", edit_user_path(@user) %>
-
-
-<div class="acount-container">
+<div class="acount-container user-container">
   <div class="acount-container__box">
     <h2 class="acount-container__box__text">プロフィール</h2>
 
@@ -14,15 +11,23 @@
         <%= @user.nickname %>
       </p>
 
-
-
       <div class="profile-field introduction-field">
         <p class="introduction-field__label">
           プロフィール
         </p>
-        <p class="introduction-field__text">
-          <%= @user.introduction %>
-        </p>
+        <% if @user.introduction.present?%>
+          <p class="introduction-field__text">
+            <%= @user.introduction %>
+          </p>
+        <% else %>
+          <p class="introduction-field__text">
+            プロフィールを登録しておりません
+          </p>
+        <% end %>
+      </div>
+
+      <div class="user-edit-btn">
+        <%= link_to "編集画面へ", edit_user_path(@user), class: "user-edit-btn__link" %>
       </div>
     </div>
   </div>
@@ -59,20 +64,6 @@
       <% end %>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="my-spots like-spots">
       <h2 class="my-spots__label like-spots__label">いいねしたスポット一覧</h2>
       <% if @user_likes.present? %>
@@ -96,6 +87,7 @@
             </div>
           <% end %>
         <% end %>
+        <%= paginate @user_likes %>
       <% else %>
         <p class="my-spots__none">
           いいねをしたスポットはありません

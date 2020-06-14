@@ -1,6 +1,5 @@
 .spot-container {
   padding: 5% 0;
-  height: 100%;
   width: 100%;
   background-color: rgba(245,245,245,1);
   &__box {
@@ -25,7 +24,6 @@
         margin-bottom: 40px;
       }
     }
-
     .spot-title {
       text-align: center;
       margin-bottom: 20px;
@@ -36,7 +34,6 @@
         word-break: break-all;
       }
     }
-
     .user-spot-btns {
       width: 100%;
       display: flex;
@@ -57,9 +54,7 @@
           background-color: red;
         }
       }
-
     }
-
     .spot-likes {
       display: flex;
       justify-content: center;
@@ -72,7 +67,6 @@
         margin-left: 30px;
       }
     }
-
     .spot-information {
       display: flex;
       justify-content: space-between;
