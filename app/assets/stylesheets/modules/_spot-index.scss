@@ -29,6 +29,37 @@
           font-size: 30px;
           font-weight: bold;
           margin-bottom: 30px;
+        }
+        .spot-list {
+          text-decoration: none;
+          width: 70%;
+          background-color: white;
+          display: inline-block;
+          border-radius: 10px 10px 5px 5px;
+          margin-bottom: 8%;
+          color: black;
+          &__image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 5px 5px;
+            margin-bottom: 10px;
+          }
+
+          &__spot-name {
+            font-size: 25px;
+            padding: 0 15px;
+            margin: 10px 0;
+          }
+
+          &__user-name {
+            font-weight: bold;
+            font-size: 20px;
+          }
+          &__created {
+            font-size: 15px;
+            opacity: 0.7;
+
+          }
 
         }
       }
@@ -63,6 +94,7 @@
           }
           &__spot-name {
             font-size: 18px;
+            padding: 0 10px;
           }
         }
       }
