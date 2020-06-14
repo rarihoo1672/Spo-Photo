@@ -5,38 +5,32 @@
   <div class="index-container__body">
 
     <div class="index-container__body--left">
-      <div class="spot-lits">
+      <div class="spot-lists">
 
 
         <h2 class="spot-lists__title">一覧</h2>
         <%- @spots.each do |spot| %>
-          <%= link_to spot_path(spot), data: {"turbolinks" => false} do %>
+          <%= link_to spot_path(spot), class: "spot-list", data: {"turbolinks" => false} do %>
+
             <div>
-              <%= image_tag spot.main_visual_url, size: "300x300" %>
+              <%= image_tag spot.main_visual_url, class: "spot-list__image" %>
             </div>
-            <h2>
-              <strong>name:</strong>
-              <%= spot.name %>
-            </h2>
-            
 
-
-            <p>
-              <strong>nickname:</strong>
+            <p class="spot-list__user-name">
+              ユーザー：
               <%= spot.user.nickname %>
             </p>
-            <p>
-              <strong>avatar:</strong>
-              <%= render partial: "avatar-view", locals: {user: spot.user} %>
+
+            <p class="spot-list__spot-name">
+              <%= spot.name %>
             </p>
 
-            <p>
-              <strong>created:</strong>
+
+
+
+            <p class="spot-list__created">
               <%= l spot.created_at %>
             </p>
-          <% end %>
-          <% if user_signed_in? && current_user.id != spot.user.id %>
-            <%= render partial: "like-form",locals: { spot: spot } %>
           <% end %>
         <% end %>
       </div>
