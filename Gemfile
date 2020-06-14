@@ -105,3 +105,6 @@ gem 'gmaps4rails'
 
 #ページネーション
 gem 'kaminari', '~> 0.17.0'
+
+#環境変数
+gem 'dotenv-rails'
