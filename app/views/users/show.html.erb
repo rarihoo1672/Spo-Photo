@@ -15,10 +15,13 @@
         <p class="introduction-field__label">
           プロフィール
         </p>
+
         <% if @user.introduction.present?%>
-          <p class="introduction-field__text">
-            <%= @user.introduction %>
-          </p>
+          <div class="introduction-field__text">
+            <p>
+              <%= simple_format(h(@user.introduction)) %>
+            </p>
+          </div>
         <% else %>
           <p class="introduction-field__text">
             プロフィールを登録しておりません
