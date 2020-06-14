@@ -11,8 +11,7 @@
         <%= @spot.name %>
       </h2>
     </div>
-    
-    <% if @spot.user.id == current_user.id %>
+    <% if @spot.user.id == current_user && user_signed_in? %>
       <div class="user-spot-btns">
         <%= link_to "編集する", edit_spot_path(@spot), class: "user-spot-btns__btn user-spot-btns__btn--edit" %>
         <%= link_to "削除する", spot_path(@spot), class: "user-spot-btns__btn user-spot-btns__btn--delete",  method: :delete %>
@@ -69,17 +68,19 @@
     <div class="spot-comment">
       <h2 class="spot-comment__text">コメント</h2>
       <%= render partial: "comment-view", locals: {comments: @spot.comments} %>
-
-      <div class="spot-comment__form">
-        <%= form_with(model: [@spot, @comment], remote: true) do |f| %>
-          <div class="form-box spot-comment__form__box">
-            <%= f.text_area :content, class: "acount-field__form", rows: 3, maxlength: 30, placeholder: "30文字以内" %>
-          </div>
-          <div class="acount-actions">
-            <%= f.submit "コメントする", class: "acount-actions__btn" %>
-          </div>
-        <% end %>
-      </div>
+      
+      <% if user_signed_in? %>
+        <div class="spot-comment__form">
+          <%= form_with(model: [@spot, @comment], remote: true) do |f| %>
+            <div class="form-box spot-comment__form__box">
+              <%= f.text_area :content, class: "acount-field__form", rows: 3, maxlength: 30, placeholder: "30文字以内" %>
+            </div>
+            <div class="acount-actions">
+              <%= f.submit "コメントする", class: "acount-actions__btn" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
