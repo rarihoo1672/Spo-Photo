@@ -1,0 +1,70 @@
+.index-container {
+  padding: 5% 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(245,245,245,1);
+  &__top {
+    width: 80%;
+    margin: 0 auto 20px;
+    padding-bottom: 5%;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.5);
+    .index-map {
+      #map-show {
+        width: 100%;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 30px;
+
+
+    &--left {
+      width: 60%;
+      .spot-lists {
+        &__title{
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 30px;
+
+        }
+      }
+    }
+
+
+    &--right {
+      width: 40%;
+      .spot-likes-ranking {
+        &__title {
+          font-size: 30px;
+          font-weight: bold;
+          margin-bottom: 30px;
+        }
+        .like-rank {
+          &__text {
+
+          }
+          &__image {
+
+          }
+          &__name {
+
+          }
+
+        }
+      }
+
+
+
+
+
+
+
+
+
+    }
+  }
+}
