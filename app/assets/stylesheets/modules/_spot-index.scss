@@ -44,16 +44,26 @@
           margin-bottom: 30px;
         }
         .like-rank {
-          &__text {
-
-          }
+          background-color: white;
+          display: inline-block;
+          margin-bottom: 8%;
+          color: black;
+          width: 300px;
+          border-radius: 10px 10px 5px 5px;
           &__image {
+            border-radius: 10px 10px 5px 5px;
 
           }
-          &__name {
-
+          &__text {
+            font-weight: bold;
+            font-size: 20px;
           }
-
+          &__count {
+            margin-bottom:10px;
+          }
+          &__spot-name {
+            font-size: 18px;
+          }
         }
       }
 

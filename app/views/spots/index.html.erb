@@ -12,17 +12,13 @@
         <%- @spots.each do |spot| %>
           <%= link_to spot_path(spot), data: {"turbolinks" => false} do %>
             <div>
-              <%= image_tag spot.main_visual_url, size: "200x300" %>
+              <%= image_tag spot.main_visual_url, size: "300x300" %>
             </div>
             <h2>
               <strong>name:</strong>
               <%= spot.name %>
             </h2>
             
-            <div>
-              <strong>いいね数:</strong>
-                <%= spot.liked_users.count %>
-            </div>
 
 
             <p>
@@ -55,17 +51,22 @@
 
 
 
-    
+
     <div class="index-container__body--right">
       <div class="spot-likes-ranking">
         <h2 class="spot-likes-ranking__title">いいねランキング</h2>
         <% @spot_ranking.each.with_index(1) do |ranking, i| %>
           <%= link_to spot_path(ranking.id), class: "like-rank" do %>
-            <p class="like-rank__text">第<%= i %>位</p>
-            <div class="like-rank__image">
-              <%= image_tag ranking.main_visual.url, size: "20x30" %>
+            <div>
+              <%= image_tag ranking.main_visual.url, size: "300x200", class: "like-rank__image" %>
             </div>
-            <p class="like-rank__name">
+            <p class="like-rank__text">第<%= i %>位</p>
+            <p class="like-rank__count">
+              いいね数：
+              <%= ranking.likes.count %>
+            </p>
+            <p class="like-rank__spot-name">
+              スポット名：
               <%= ranking.name %>
             </p>
           <% end %>
