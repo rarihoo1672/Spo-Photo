@@ -1,5 +1,5 @@
 <% if user.avatar? %>
   <%= image_tag user.avatar.to_s, id: :image_prev, size: "200x300" %>
 <% else %>
-  <%= image_tag asset_path("non-avatar.png"), id: :image_prev, size: "200x300" %>
+  <%= image_tag asset_path("non-avatar.png"), id: "image_prev", size: "200x300" %>
 <% end %>
