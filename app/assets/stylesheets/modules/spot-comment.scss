@@ -1,0 +1,56 @@
+.spot-comment {
+  margin: 0 auto;
+  &__text {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  &__views {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    .comment-user-content {
+      padding: 20px 20px 2px;
+      margin-bottom: 30px;
+      height: 80px;
+      width: 100%;
+      background-color: rgba(193, 66, 66, 0.1);
+      margin: 20px;
+      &__text {
+        height: calc(100% - 26px);
+      }
+      .comment-information {
+        display: flex;
+        justify-content: space-between;
+        height: 20px;
+        align-items: flex-end;
+        &__time {
+          opacity: 0.5;
+        }
+        &__delete {
+        }
+      }
+    }
+    .comment-user-details {
+      text-align: center;
+      &__avatar {
+        #image_prev {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      &__name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    }
+  }
+  &__form {
+    text-align: center;
+    &__box {
+      padding: 3% 8%;
+    }
+  }
+}
