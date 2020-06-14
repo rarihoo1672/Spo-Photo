@@ -5,7 +5,7 @@
 
 
 ## :speech_balloon: What's this?
-Maps JavaScript API & Geocoding API を利用した、スポットの情報交換・交流サイトです。
+Maps JavaScript API & Geocoding API を利用した、スポットの情報交換・交流サイトです。  
 トップページのマップでは登録されたスポットの位置を確認でき、  
 マーカーをクリックすることで、吹き出しから、そのスポットの詳細を見ることもできます。
 
