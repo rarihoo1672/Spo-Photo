@@ -52,6 +52,3 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: spo-photo_production
-  username: spo-photo
-  password: <%= ENV['SPO-PHOTO_DATABASE_PASSWORD'] %>
