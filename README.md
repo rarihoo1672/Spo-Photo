@@ -1,12 +1,10 @@
-# README
-
 # :camera: App Name
 
-## スポ（ット）フォト
+### スポ（ット）フォト
 ![app-top-page](https://user-images.githubusercontent.com/63793009/84601570-2705d600-aebc-11ea-8406-dd8054da8086.jpg)
 
 
-# :speech_balloon: What's this?
+## :speech_balloon: What's this?
 Maps JavaScript API & Geocoding API を利用した、スポットの情報交換・交流サイトです。
 トップページのマップでは登録されたスポットの位置を確認でき、  
 マーカーをクリックすることで、吹き出しから、そのスポットの詳細を見ることもできます。
@@ -14,15 +12,15 @@ Maps JavaScript API & Geocoding API を利用した、スポットの情報交�
 ※現在、マップ表示にてFor development purposes onlyと表示されます。  ※
 ※見ずらい状態ですが、アプリの機能については問題ありません。ご容赦ください。※
 
-# :globe_with_meridians: App URL
+## :globe_with_meridians: App URL
 
-## https://spo-photo.herokuapp.com/
+### https://spo-photo.herokuapp.com/
 
-# :pencil: ER Diagram
+## :pencil: ER Diagram
 
 ![erd-5_page-0001](https://user-images.githubusercontent.com/63793009/84599339-4268e500-aeac-11ea-9c91-7fe1650e31ff.jpg)
 
-# :computer: 開発環境
+## :computer: 開発環境
 
 - Ruby
 - Rails
@@ -34,9 +32,9 @@ Maps JavaScript API & Geocoding API を利用した、スポットの情報交�
 - Heroku (本番環境サーバー)
 - S3(AWS)(画像アップロード先)
 
-# :art: DataBase Disign
+## :art: DataBase Disign
 
-## usersテーブル
+### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |avatar|string|null: false, limit: 12|
@@ -45,14 +43,14 @@ Maps JavaScript API & Geocoding API を利用した、スポットの情報交�
 |nickname|string|null: false, limit: 12|
 |password|string|null: false|
 
-### Association
- - has_many    :spots,        dependent: :destroy
- - has_many    :comments,     dependent: :destroy
- - has_many    :likes,        dependent: :destroy
- - has_many    :liked_spots,  through:   :likes, source: :spot
+#### Association
+- has_many    :spots,        dependent: :destroy
+- has_many    :comments,     dependent: :destroy
+- has_many    :likes,        dependent: :destroy
+- has_many    :liked_spots,  through:   :likes, source: :spot
 
 
-## spotsテーブル
+### spotsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, limit: 25|
@@ -63,34 +61,34 @@ Maps JavaScript API & Geocoding API を利用した、スポットの情報交�
 |longitude|float|
 |user_id|references|foreign_key: true, null: false|
 
-### Association
- - belongs_to   :user
- - has_many     :comments,    dependent: :destroy
- - has_many     :likes,       dependent: :destroy
- - has_many     :liked_users, through:   :likes, source: :user
+#### Association
+- belongs_to   :user
+- has_many     :comments,    dependent: :destroy
+- has_many     :likes,       dependent: :destroy
+- has_many     :liked_users, through:   :likes, source: :user
 
 
- ## likeテーブル
+### likeテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|foreign_key: ture, null: false|
 |spot_id|references|foreign_key: true, null: false|
 
-### Association
+#### Association
 - belongs_to :user
 - belongs_to :spot
 
 
-## commentsテーブル
+### commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |content|string|null: false, limit: 30|
 |user_id|references|foreign_key: true, null: false|
 |spot_id|references|foreign_key: ture, null: false|
 
-### Association
- - belongs_to :user
- - belongs_to :spot
+#### Association
+- belongs_to :user
+- belongs_to :spot
 
 
 
