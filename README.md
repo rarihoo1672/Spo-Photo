@@ -9,16 +9,12 @@ Maps JavaScript API & Geocoding API を利用した、スポットの情報交�
 トップページのマップでは登録されたスポットの位置を確認でき、  
 マーカーをクリックすることで、吹き出しから、そのスポットの詳細を見ることもできます。
 
-※現在、マップ表示にてFor development purposes onlyと表示されます。  ※
+※現在、マップ表示にてFor development purposes onlyと表示されます。  ※  
 ※見ずらい状態ですが、アプリの機能については問題ありません。ご容赦ください。※
 
 ## :globe_with_meridians: App URL
 
 ### https://spo-photo.herokuapp.com/
-
-## :pencil: ER Diagram
-
-![erd-5_page-0001](https://user-images.githubusercontent.com/63793009/84599339-4268e500-aeac-11ea-9c91-7fe1650e31ff.jpg)
 
 ## :computer: 開発環境
 
@@ -31,6 +27,10 @@ Maps JavaScript API & Geocoding API を利用した、スポットの情報交�
 - MySQL(開発環境サーバー)
 - Heroku (本番環境サーバー)
 - S3(AWS)(画像アップロード先)
+
+## :pencil: ER Diagram
+
+![erd-5_page-0001](https://user-images.githubusercontent.com/63793009/84599339-4268e500-aeac-11ea-9c91-7fe1650e31ff.jpg)
 
 ## :art: DataBase Disign
 
