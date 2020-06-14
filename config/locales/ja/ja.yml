@@ -15,6 +15,7 @@ ja:
       comment:
         content: "コメント"
       spot:
+        main_visual: "スポット画像"
         name: "スポット名"
         information: "説明"
         address: "住所"
