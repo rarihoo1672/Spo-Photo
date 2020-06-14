@@ -2,16 +2,13 @@
   <div class="index-container__top">
     <%= render partial: "map-view", locals: {hash: @hash.to_json} %>
   </div>
-  <div class="index-container__body">
 
+  <div class="index-container__body">
     <div class="index-container__body--left">
       <div class="spot-lists">
-
-
         <h2 class="spot-lists__title">一覧</h2>
         <%- @spots.each do |spot| %>
           <%= link_to spot_path(spot), class: "spot-list", data: {"turbolinks" => false} do %>
-
             <div>
               <%= image_tag spot.main_visual_url, class: "spot-list__image" %>
             </div>
@@ -25,9 +22,6 @@
               <%= spot.name %>
             </p>
 
-
-
-
             <p class="spot-list__created">
               <%= l spot.created_at %>
             </p>
@@ -35,24 +29,13 @@
         <% end %>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
     <div class="index-container__body--right">
       <div class="spot-likes-ranking">
         <h2 class="spot-likes-ranking__title">いいねランキング</h2>
         <% @spot_ranking.each.with_index(1) do |ranking, i| %>
           <%= link_to spot_path(ranking.id), class: "like-rank" do %>
             <div>
-              <%= image_tag ranking.main_visual.url, size: "300x200", class: "like-rank__image" %>
+              <%= image_tag ranking.main_visual.url, size: "330x230", class: "like-rank__image" %>
             </div>
             <p class="like-rank__text">第<%= i %>位</p>
             <p class="like-rank__count">
