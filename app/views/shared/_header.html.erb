@@ -1,16 +1,22 @@
-<div class="header-top">
-  <%= link_to "ホームへ", root_path, data: {"turbolinks" => false} %>
-  <% if user_signed_in? %>
-    <div>
-      <%= link_to "スポット登録", new_spot_path %>
-      <%= link_to "マイページ", user_path(current_user) %>
-      <%= link_to "登録情報編集", edit_user_registration_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </div>
-  <% else %>
-    <div>
-      <%= link_to "ログイン", new_user_session_path %>
-      <%= link_to "新規登録", users_path %>
-    </div>
-  <% end %>
+<div class="header-box">
+  <div class="header-box__top">
+    <h1 class="header-box__top__title">
+      <%= link_to "スポッ(ト)フォト", root_path, class: "header-box__top__title__link", data: {"turbolinks" => false} %>
+    </h1>
+  </div>
+  <div class="header-box__bottom">
+    <% if user_signed_in? %>
+      <nav class="header-nav">
+        <%= link_to "スポット登録", new_spot_path, class: "nav-btn" %>
+        <%= link_to "マイページ", user_path(current_user), class: "nav-btn" %>
+        <%= link_to "登録情報編集", edit_user_registration_path, class: "nav-btn" %>
+        <%= link_to "ログアウト", destroy_user_session_path, class: "nav-btn", method: :delete %>
+      </nav>
+    <% else %>
+      <div class="header-nav">
+        <%= link_to "ログイン", new_user_session_path, class: "nav-btn" %>
+        <%= link_to "新規登録", users_path, class: "nav-btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>
