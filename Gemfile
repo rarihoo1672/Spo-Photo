@@ -104,7 +104,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 
 #ページネーション
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 
 #環境変数
 gem 'dotenv-rails'
