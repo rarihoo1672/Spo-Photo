@@ -51,8 +51,8 @@
 
 
     <div class="spot-detail">
-      <p class="spot-detail__content">
-        <%= @spot.information %>
+      <p>
+        <%= simple_format(h(@spot.information)) %>
       </p>
     </div>
 
