@@ -1,60 +1,85 @@
-<div>
-  <%= image_tag @spot.main_visual_url, size: "200x300" %>
-</div>
+<div class="spot-container">
+  <div class="spot-container__box">
+    <h2 class="spot-container__box__text">スポット詳細</h2>
 
-<h2>
-  <strong>name:</strong>
-  <%= @spot.name %>
-</h2>
+    <div class="spot-image">
+      <%= image_tag @spot.main_visual_url, class: "spot-image__content" %>
+    </div>
 
-<p>
-  <strong>avatar:</strong>
-  <%= render partial: "avatar-view", locals: {user: @spot.user} %>
-</p>
+    <div class="spot-title">
+      <h2 class="spot-title__name">
+        <%= @spot.name %>
+      </h2>
+    </div>
+    
+    <% if @spot.user.id == current_user.id %>
+      <div class="user-spot-btns">
+        <%= link_to "編集する", edit_spot_path(@spot), class: "user-spot-btns__btn user-spot-btns__btn--edit" %>
+        <%= link_to "削除する", spot_path(@spot), class: "user-spot-btns__btn user-spot-btns__btn--delete",  method: :delete %>
+      </div>
+    <% end %>
+    
+    <div class="spot-likes">
+      <div class="spot-likes__count">
+        <strong>いいね数：</strong>
+        <%= @spot.liked_users.count %>
+      </div>
 
-<p>
-  <strong>nickname:</strong>
-  <%= @spot.user.nickname %>
-</p>
-<div>
-  <strong>いいね数:</strong>
-    <%= @spot.liked_users.count %>
-<div>
+      <% if user_signed_in? && current_user.id != @spot.user.id  %>
+        <%= render partial: "like-form", locals: { spot: @spot } %>
+      <% end %>
+    </div>
 
-<% if user_signed_in? && current_user.id != @spot.user.id  %>
-  <%= render partial: "like-form", locals: { spot: @spot } %>
-<% end %>
+    <div class="spot-information">
+      <div class="spot-time">
+        <h2 class="spot-time__created">
+          <%= l @spot.created_at %>
+        </p>
+      </div>
 
-<p>
-  <strong>created:</strong>
-  <%= l @spot.created_at %>
-</p>
+      <div class="spot-user">
+        <div class="spot-user__avatar">
+          <%= render partial: "avatar-view", locals: {user: @spot.user} %>
+        </div>
+        <h2 class="spot-user__name"> 
+          投稿者:
+          <%= @spot.user.nickname %>
+        </h2>
+      </div>
+    </div>
 
-<p>
-  <strong>information:</strong>
-  <%= @spot.information %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @spot.address %>
-</p>
+    <div class="spot-detail">
+      <p class="spot-detail__content">
+        <%= @spot.information %>
+      </p>
+    </div>
 
-<%= render partial: "map-view", locals: {hash: @hash.to_json} %>
+    <div class="spot-place">
+      <h2 class="spot-place__address">
+        <strong>Address:</strong>
+        <%= @spot.address %>
+      </h2>
 
-<%= render partial: "comment-view", locals: {comments: @spot.comments} %>
+      <div class="spot-place__map">
+        <%= render partial: "map-view", locals: {hash: @hash.to_json} %>
+      </div>
+    </div>
 
-<%= form_with(model: [@spot, @comment], remote: true) do |f| %>
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content, rows: 3, maxlength: 30, placeholder: "30文字以内" %>
+    <div class="spot-comment">
+      <h2 class="spot-comment__text">コメント</h2>
+      <%= render partial: "comment-view", locals: {comments: @spot.comments} %>
+
+      <div class="spot-comment__form">
+        <%= form_with(model: [@spot, @comment], remote: true) do |f| %>
+          <div class="form-box spot-comment__form__box">
+            <%= f.text_area :content, class: "acount-field__form", rows: 3, maxlength: 30, placeholder: "30文字以内" %>
+          </div>
+          <div class="acount-actions">
+            <%= f.submit "コメントする", class: "acount-actions__btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <%= f.submit %>
-<% end %>
-
-
-
-<% if @spot.user.id == current_user.id %>
-  <%= link_to "編集する", edit_spot_path(@spot) %>
-  <%= link_to "削除する", spot_path(@spot), method: :delete %>
-<% end %>
+</div>

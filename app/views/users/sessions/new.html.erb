@@ -14,7 +14,7 @@
 
         <div class="acount-field">
           <%= f.label :password, class: "acount-field__label" %><br />
-          <%= f.password_field :password, class: "acount-field__form", autocomplete: "current-password" %>
+          <%= f.password_field :password, class: "acount-field__form acount-field__form--bottom", autocomplete: "current-password" %>
         </div>
 
         <% if devise_mapping.rememberable? %>

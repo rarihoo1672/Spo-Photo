@@ -1,38 +1,38 @@
 <%= form_with model: spot, local: true do |f|%>
-
   <%= render partial: "layouts/errors-messages", locals: { model: @spot} %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, maxlength: 25, placeholder: "25文字以内" %>
-  </div>
-  
-  <% if @spot.main_visual? %>
-    <div class="field">
-      <p>
-        現在の画像
-        <%= image_tag @spot.main_visual.url, id: "image_prev", size: "200x300" %>
-      </p>
+  <div class="form-box">
+
+    <div class="image-form">
+      <% if @spot.main_visual? %>
+        <%= image_tag @spot.main_visual.url, id: "image_prev", size: "600x400" %>
+      <% else %>
+        <%= image_tag asset_path("dummy-white.png"),  id: "image_prev", size: "600x400" %>
+      <% end %>
+      <div class="image-form__under-box">
+        <%= f.label :main_visual, class: "image-form__under-box__label" %>
+        <%= f.file_field :main_visual, class: "acount-actions__btn image-form__under-box__input", id: "image_input" %>
+      </div>
     </div>
-  <% else %>
-    <%= image_tag asset_path("dummy-white.png"),  id: "image_prev", size: "200x300" %>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :main_visual %>
-    <%= f.file_field :main_visual, id: "image_input" %>
-  </div>
+    <div class="acount-field">
+      <%= f.label :name, class: "acount-field__label"  %>
+      <%= f.text_field :name, class: "acount-field__form", maxlength: 25, placeholder: "25文字以内" %>
+    </div>
+    
 
-  <div class="field">
-    <%= f.label :information %>
-    <%= f.text_area :information, rows: 10 %>
-  </div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
+    <div class="acount-field">
+      <%= f.label :information, class: "acount-field__label" %>
+      <%= f.text_area :information, class: "acount-field__form", rows: 10 %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="acount-field">
+      <%= f.label :address, class: "acount-field__label" %>
+      <%= f.text_field :address, class: "acount-field__form acount-field__form--bottom" %>
+    </div>
+
+    <div class="acount-actions">
+      <%= f.submit "登録する", class: "acount-actions__btn" %>
+    </div>
   </div>
 <% end %>

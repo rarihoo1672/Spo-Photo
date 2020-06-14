@@ -1,23 +1,26 @@
-<%- comments.each do |comment| %>
-  <p>
-    <strong>information:</strong>
-    <%= comment.content %>
-  </p>
-  <p>
-    <strong>user name:</strong>
-    <%= comment.user.nickname %>
-  </p>
-
-  <div>
-    <%= render partial: "avatar-view", locals: {user: comment.user} %>
+<% comments.each do |comment| %>
+  <div class="spot-comment__views">
+    <div class="comment-user-content">
+      <p class="comment-user-content__text">
+        <%= comment.content %>
+      </p>
+      <div class="comment-information">
+        <p class="comment-information__time">
+          <%= time_ago_in_words(comment.created_at) %>
+          前
+        </p>
+        <% if comment.user.id == current_user.id %>
+          <%= link_to "削除する", spot_comment_path(comment.spot_id, comment.id), class: "comment-information__delete", method: :delete %>
+        <% end%>
+      </div>
+    </div>
+    <div class="comment-user-details">
+      <div class="comment-user-details__avatar">
+        <%= render partial: "avatar-view", locals: {user: comment.user} %>
+      </div>
+      <p class="comment-user-details__name">
+        <%= comment.user.nickname %>
+      </p>
+    </div>
   </div>
-
-  <p>
-    <strong>コメントした時間:</strong>
-    <%= time_ago_in_words(comment.created_at) %>
-  </p>
-  
-  <% if comment.user.id == current_user.id %>
-    <%= link_to "削除する", spot_comment_path(comment.spot_id, comment.id), method: :delete %>
-  <% end%>
 <% end %>

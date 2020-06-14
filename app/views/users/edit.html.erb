@@ -12,8 +12,6 @@
           <%= render partial: "spots/avatar-view", locals: {user: @user} %>
           <%= f.label :avatar, class: "avatar-edit__label" %>
           <%= f.file_field :avatar, class: "acount-actions__btn avatar-edit__input", id: "image_input" %>
-
-
         </div>
 
         <div class="acount-field">
@@ -25,7 +23,7 @@
           <%= f.label :introduction, class: "acount-field__label" %>
           <%= f.text_area :introduction, class: "acount-field__form", id:  "js-counter", autofocus: true, rows: 10,  placeholder: "500文字以内です", maxlength: 300 %>
           
-          <p id="show-count">文字</p>
+          <p class="acount-field__form--bottom", id="show-count">文字</p>
         </div>
 
         <div class="acount-actions">
