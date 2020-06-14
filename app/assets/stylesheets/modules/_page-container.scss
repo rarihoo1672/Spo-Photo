@@ -1,0 +1,21 @@
+.acount-container {
+  padding: 5% 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(245,245,245,1);
+  &__box {
+    padding: 30px;
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    &__text {
+      font-weight: bold;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 20px;
+      &--delete {
+      font-size: 10px;
+      }
+    }
+  }
+}

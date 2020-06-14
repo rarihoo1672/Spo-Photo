@@ -1,0 +1,32 @@
+.form-box {
+  padding: 8%;
+  .acount-field {
+    font-size: 20px;
+    margin-bottom: 30px;
+
+    &__label {          
+      font-size: 20px;
+      margin: 0 0 10px 5px;
+    }
+    &__form {
+    padding: 0 5px;
+    width: 100%;
+
+    &--bottom {
+      margin-bottom: 60px;
+    }
+    }
+  }
+  .acount-actions {
+    width: 30%;
+    margin: 0 auto;
+    &__btn {
+      width: 100%;
+      padding: 5px 30px;
+    }
+  }
+}
+
+.field_with_errors {
+  display: contents;
+}
