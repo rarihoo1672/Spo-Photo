@@ -24,6 +24,7 @@
       letter-spacing: 3px;
       word-break: break-all;
       line-height: 3rem;
+      text-align: center;
     }
   }
 }
@@ -56,6 +57,11 @@
       align-items: center;
     }
     .my-spot {
+      color: black;
+      width: 400px;
+      margin: 0 auto;
+      display: inline-block;
+
       &__image {
         margin-bottom: 20px;
       }
