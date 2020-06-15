@@ -1,6 +1,6 @@
 <div class="acount-container user-container">
   <div class="acount-container__box">
-    <h2 class="acount-container__box__text">プロフィール</h2>
+    <h2 class="acount-container__box__text"><%= @user.nickname%>さん</h2>
 
     <div class="profile-box">
       <div class="avatar-show">
@@ -24,7 +24,7 @@
           </div>
         <% else %>
           <p class="introduction-field__text">
-            プロフィールを登録しておりません
+            プロフィール未登録
           </p>
         <% end %>
       </div>
