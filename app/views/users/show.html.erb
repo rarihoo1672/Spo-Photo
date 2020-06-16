@@ -76,8 +76,8 @@
       <% if @user_likes.present? %>
         <% @user_likes.each_with_index do |like, i| %>
           <%= link_to spot_path(like) do%>
-            <div class="my-spot like__spot">
-              <p class="myspot__count like__spot__count"><%= i + 1 %></p>
+            <div class="my-spot" id="like-spot">
+              <p class="myspot__count like-spot__count"><%= i + 1 %></p>
               <div class="my-spot__image like-spot__image">
                 <%= image_tag like.main_visual.url, size: "400x300"%>
               </div>
